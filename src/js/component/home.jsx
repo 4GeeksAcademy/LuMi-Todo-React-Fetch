@@ -8,7 +8,6 @@ const Home = () => {
 	const [todos, setTodos] = useState([])
 	const [task, setTask] = useState({label: "", done: false})
 	const [error, setError] = useState({msg:"", let:false})
-	const [hiden, setHiden] = useState(true)
 
 	useEffect(()=>{
 		const fetchData = async ()=>{
@@ -98,12 +97,13 @@ const Home = () => {
 		})
 	}
 
-	const addTask = async () => {
-		if(task !== ""){
-			setTodos(prevTodo => [...prevTodo, task])
+	const addTask = () => {
+		if (task.label !== "") {
+			setTodos(prevTodo => [...prevTodo, task]);
+			setTask({ label: "", done: false });
 		}
 	}
-
+	
 	const deleteAllTasks = () =>{
 		const filteredTodos = todos.filter((todo,index) => index === 0)
 		setTodos(filteredTodos)
@@ -178,20 +178,33 @@ const Home = () => {
 		</div>
 		{ login && 
 			<div className="mt-5 d-flex justify-content-center flex-column align-items-center w-wide-1 mx-automatic p-4 border-round-1 bg-1">
-				<AddTaskForm user={user} toggleChange={toggleChange} toggleAdd={addTask} toggleDeleteAll={deleteAllTasks}/>
+				<AddTaskForm 
+					content={task.label}
+					toggleChange={toggleChange}
+					toggleAdd={addTask}
+					toggleDeleteAll={deleteAllTasks}
+				/>
 				<div className="border border-0 rounded bg-1 mt-3" style={{width: "100%"}}>
 					{todos.length > 1 ?
 						todos.map((todo, index)=> index > 0 &&
-							<div key={index} className="d-flex justify-content-between align-items-center mb-2">
+							<div 
+								key={index} 
+								className="d-flex justify-content-between align-items-center mb-2 trashDisplay"
+								>
 								<div>
 									<p className="m-0">{todo.label}</p>
 									<p className="m-0 text-">{todo.done ? "Hecho" : "Not done"}</p>
 								</div>
-								<button className="btn p-1" onClick={()=>deleteTask(index)}>🗑️</button>
+								<button 
+									className="btn p-1 trash"
+									onClick={()=>deleteTask(index)}
+								>
+									🗑️
+								</button>
 							</div>
 						)
 						:
-						<h3 className={"text-center m-0 py-2 " + hiden ? "d-none" : "d-block"}>No Tasks Yet</h3>
+						<h3 className="text-center m-0 py-2">No Tasks Yet</h3>
 					}
 				</div>
 			</div>

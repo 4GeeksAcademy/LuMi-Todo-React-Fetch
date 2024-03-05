@@ -61,3 +61,11 @@ button.hoverDanger:hover{
 .mx-automatic{
     margin: 0 auto;
 }
+
+.trash{
+    display: none;
+}
+
+.trashDisplay:hover > .trash{
+    display:block;
+}
