@@ -1,20 +1,63 @@
 *{
-    color: #f6f1f1
+    color: #000000;
+    font-family: 'Open sans', sans-serif
 }
 
 body{
-    background:#000000
+    background:#294B29
 }
 
-.border-primary{
-    border: 1px solid rgb(0, 255, 242) !important;
-    border-color: rgb(0, 255, 242);
+input:focus{
+    outline: none;
 }
 
-.lumo-primary{
-    box-shadow: 0 0 30px rgb(0, 255, 242);
+button.hoverPrim:hover{
+    background: #FAF6F0 !important;
+    color:black !important
 }
 
-.backG-primary{
-    background: rgb(0, 132, 255)
+button.hoverDanger:hover{
+    background: rgb(231, 67, 67) !important;
+    color:black !important 
+}
+
+.text-shine{
+    text-shadow: 0 0 1px #FAF6F0;
+}
+
+.color-1{
+    color: #FCF5ED
+}
+
+.color-2{
+    color: #F4BF96
+}
+
+.b-neon{
+    border-color:#F4EAE0;
+    box-shadow: 0 0 10px #F4EAE0;
+}
+
+.bg-1{
+    background: #DBE7C9
+}
+
+.bg-2{
+    background: #F4BF96
+}
+
+.border-round-1{
+    border-radius: 1rem;
+}
+
+.w-wide-5{
+    width: 18rem
+}
+
+.w-wide-1{
+    width:30rem;
+}
+
+.mx-automatic{
+    margin: 0 auto;
 }

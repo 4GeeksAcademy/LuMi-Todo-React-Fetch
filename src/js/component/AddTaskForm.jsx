@@ -1,14 +1,14 @@
 import React from "react"
 
-function AddTaskForm({user, toggleChange, toggleAdd}){
+function AddTaskForm({toggleChange, toggleAdd, toggleDeleteAll}){
 
 
 
     return <>
-        <h1 className="text-center">User logged: {user}</h1>
-        <div className="d-flex justify-content-center align-items-center mt-3 gap-1"> 
-            <input className="rounded border border-black py-1 px-2" style={{width:"300px"}} name="label" onChange={toggleChange}></input>
-            <button className="btn btn-light" onClick={toggleAdd}>Add task</button>
+        <div className="d-flex justify-content-center align-items-center mt-3 gap-1 w-100"> 
+            <input className="rounded border border-black py-1 px-2" style={{flexGrow:"0.8"}} name="label" onChange={toggleChange}></input>
+            <button className="btn bg-2 border border-0 hoverPrim" style={{flexGrow:"0.1"}} onClick={toggleAdd}>Add task</button>
+            <button className="btn bg-2 border border-0 hoverDanger" style={{flexGrow:"0.1"}} onClick={toggleDeleteAll}>Delete All</button>
         </div>
     </>
 }
