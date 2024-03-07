@@ -103,6 +103,12 @@ const Home = () => {
 			setTask({ label: "", done: false });
 		}
 	}
+
+	const toggleAdd = (event) =>{
+		if(event.key == "Enter"){
+			return addTask()
+		}
+	}
 	
 	const deleteAllTasks = () =>{
 		const filteredTodos = todos.filter((todo,index) => index === 0)
@@ -183,6 +189,7 @@ const Home = () => {
 					toggleChange={toggleChange}
 					toggleAdd={addTask}
 					toggleDeleteAll={deleteAllTasks}
+					toggleKey={toggleAdd}
 				/>
 				<div className="border border-0 rounded bg-1 mt-3" style={{width: "100%"}}>
 					{todos.length > 1 ?
@@ -191,9 +198,9 @@ const Home = () => {
 								key={index} 
 								className="d-flex justify-content-between align-items-center mb-2 trashDisplay"
 								>
-								<div>
+								<div className="py-2">
 									<p className="m-0">{todo.label}</p>
-									<p className="m-0 text-">{todo.done ? "Hecho" : "Not done"}</p>
+									{/* <p className="m-0 text-">{todo.done ? "Hecho" : "Not done"}</p> */}
 								</div>
 								<button 
 									className="btn p-1 trash"
